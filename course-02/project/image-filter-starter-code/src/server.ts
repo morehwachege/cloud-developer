@@ -32,7 +32,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
   app.get("/filteredimage",
     async (req: express.Request, res: express.Response, next) => {
-      let image_url = req.query.image_url;
+      let image_url : string = req.query.image_url;
       if (image_url){
         await filterImageFromURL(image_url)
           .then((result) => {
@@ -46,6 +46,9 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
       }
       else if(!image_url) {
         res.status(400).json({ error: "empty image request" });
+      }
+      else{
+        res.status(500).json({ error: "server error: could not complete request" });
       }
     }
   );

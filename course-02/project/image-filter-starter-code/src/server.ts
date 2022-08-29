@@ -50,6 +50,8 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     }
   );
 
+  // Deployment Link = http://udacity-muriithi-gakuru-ebeanstalk-dev.us-east-1.elasticbeanstalk.com/
+
   //! END @TODO1
   
   // Root Endpoint

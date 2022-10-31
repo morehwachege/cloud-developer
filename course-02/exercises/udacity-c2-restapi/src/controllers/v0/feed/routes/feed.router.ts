@@ -18,6 +18,30 @@ router.get('/', async (req: Request, res: Response) => {
 
 //@TODO
 //Add an endpoint to GET a specific resource by Primary Key
+router.get('/awesome/:id', async (req: Request, res: Response) => {
+    let { id }= req.params;
+
+    // if (!id){
+    //     return res.status(400).send("id is required");
+    // }
+    // else{
+    //     return res.status(200).send("request successful")
+    // }
+    // if(id){
+    //     return res.status(200).send("request successful")
+    // }
+
+    const items = await FeedItem.findAndCountAll({order: [['id', 'DESC']]});
+    // items.rows.map((item) => {
+    //         // if(item.url) {
+    //         //     item.url = AWS.getGetSignedUrl(item.url);
+    //         // }
+    //         if(item.id == id){
+    //             return item
+    //         }
+    // });
+    return items.rows.filter((item) => item.id == id);
+})
 
 // update a specific resource
 router.patch('/:id', 

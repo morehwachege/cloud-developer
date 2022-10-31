@@ -1,17 +1,18 @@
 # TODO: Change the name of the org 
-org: sudkul
+org: muriithigakuru
 app: serverless-todo-app
 service: serverless-todo-app
 
 plugins:
   - serverless-webpack
   - serverless-iam-roles-per-function
-  - serverless-plugin-tracing
+  - serverless-reqvalidator-plugin
+  - serverless-aws-documentation
 
 provider:
   name: aws
   runtime: nodejs12.x
-  lambdaHashingVersion: '20201221'
+  # lambdaHashingVersion: '20201221'
 
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-east-1'}

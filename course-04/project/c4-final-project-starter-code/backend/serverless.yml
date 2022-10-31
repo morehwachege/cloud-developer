@@ -14,7 +14,6 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-east-1'}
   
-#  X-Ray Tracing
   tracing: 
     lambda: true
     apiGateway: true
@@ -87,8 +86,7 @@ functions:
         Resource: 
           - '*'
 
-  # TODO: Configure this function
- 
+  # TODO: Configure this function 
   CreateTodo:
     handler: src/lambda/http/createTodo.handler
     events:
@@ -182,7 +180,6 @@ functions:
 
 resources:
   Resources:
-    # TODO: Add any necessary AWS resources
     TodosTable:
       Type: AWS::DynamoDB::Table
       Properties:

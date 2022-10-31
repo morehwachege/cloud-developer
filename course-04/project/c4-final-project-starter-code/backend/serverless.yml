@@ -22,7 +22,7 @@ provider:
   environment:
     PROJECT_NAME: udacity
     TODOS_TABLE: udacity-p4-${self:provider.stage}
-    S3_BUCKET_NAME: udacity-p4-${self:provider.stage}
+    ATTACHMENT_S3_BUCKET: udacity-p4-${self:provider.stage}
 
 custom:
   documentation:
@@ -178,7 +178,7 @@ functions:
         Action:
           - s3:*
           - xray:PutTraceSegments 
-        Resource: arn:aws:s3:::${self:provider.environment.S3_BUCKET_NAME}/*
+        Resource: arn:aws:s3:::${self:provider.environment.ATTACHMENT_S3_BUCKET}/*
 
 resources:
   Resources:
@@ -209,7 +209,7 @@ resources:
     AttachmentsBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: ${self:provider.environment.S3_BUCKET_NAME}
+        BucketName: ${self:provider.environment.ATTACHMENT_S3_BUCKET}
         CorsConfiguration:
           CorsRules:
             - AllowedOrigins:
@@ -266,5 +266,5 @@ resources:
               Effect: Allow
               Principal: '*'
               Action: 's3:GetObject'
-              Resource: 'arn:aws:s3:::${self:provider.environment.S3_BUCKET_NAME}/*'
+              Resource: 'arn:aws:s3:::${self:provider.environment.ATTACHMENT_S3_BUCKET}/*'
         Bucket: !Ref AttachmentsBucket

@@ -38,9 +38,6 @@ Amazon Simple Storage Service is a cloud-based object storage service with indus
 
 Customers of all sizes and industries can use it to store and protect any amount of data for a variety of use cases, including websites, mobile apps, backup and restore, archiving, enterprise applications, IoT devices, and big data analytics.
 
-# Demo
-<img width="1245" alt="Screenshot 2022-06-17 at 15 09 12" src="https://user-images.githubusercontent.com/80678596/174304587-9a1a282b-d0b5-40d2-8fc8-e26b33a1b493.png">  
-
 # Serverless TODO
 
 In this project I develop and deploy a simple "TODO" application using AWS Lambda and Serverless framework. This application will allow users to create/remove/update/get TODO items. Each TODO item contains the following fields: 
